@@ -13,7 +13,7 @@ tags: ['Grafana', 'docker', 'Path traversal']
 ```
 
 Despues de un escaneo en nmap, veo los servicios abiertos: 
-![scan](public/data-machine/data-1)
+![scan](public/data-machine/data-1.png)
 Para mas detalles de los puertos realizo un segundo escaneo
 ```
 nmap -p 22,3000 -sCV 10.129.234.47
