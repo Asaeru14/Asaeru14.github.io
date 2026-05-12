@@ -12,18 +12,18 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
 
 ---
 
-<html lang="en" class="dark">
+<html lang="es" class="dark">
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
+  <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-black dark:text-neutral-300 transition-colors duration-300">
     <Header />
     <main>
       <article class="px-4">
         <div class="flex justify-between mb-6">
           <FormattedDate date={pubDate} />
           <p class="text-gray-500 dark:text-neutral-400 text-xs font-medium tracking-wide">
-            5 min read
+
           </p>
         </div>
         <h1 class="text-5xl mb-8">
@@ -57,7 +57,7 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
     <Footer />
   </body>
 
-  <style is:inline>
+  <style is:global>
     /* Base Styles */
 img {
     max-width: 100%;
@@ -94,7 +94,7 @@ blockquote {
     margin: 20px 0;
     color: #666;
     background-color: #f9f9f9;
-    @apply dark:bg-neutral-700 text-white border-l-4 border-neutral-500; 
+    @apply dark:bg-neutral-700 text-white border-l-4 border-neutral-500;
 }
 
 /* Code Blocks and Inline Code */

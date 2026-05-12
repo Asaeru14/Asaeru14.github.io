@@ -6,4 +6,4 @@ heroImage: '/Megumin.jpg'
 tags: ['beta', 'test']
 ---
 
-ola
+Holaa, este es un post de prueba para ver como funciona todo.
