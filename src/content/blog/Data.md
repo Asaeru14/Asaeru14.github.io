@@ -2,7 +2,7 @@
 title: 'Easy Machine | Data'
 description: 'Writeup de la maquina'
 pubDate: 'May 12 2026'
-heroImage: '/data.jpg'
+heroImage: '/data-macine/logo.jpg'
 tags: ['Grafana', 'docker', 'Path traversal']
 ---
 
